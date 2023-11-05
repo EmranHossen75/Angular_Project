@@ -26,21 +26,7 @@ namespace ExamAngular03.ViewModels
         [StringLength(20, MinimumLength = 6)]
         public string Password { get; set; } = default!;
     }
-    //public class RegisterViewModel
-    //{
-    //    [Required]
-    //    public string Username { get; set; } = default!;
-
-
-    //    [Required]
-    //    [DataType(DataType.Password)]
-    //    [StringLength(20, MinimumLength = 6)]
-    //    public string Password { get; set; } = default!;
-    //    [Required]
-    //    [DataType(DataType.Password)]
-    //    [Compare("Password")]
-    //    public string ConfirmPassword { get; set; } = default!;
-    //}
+    
     public class IdentityDbInitializer
     {
         private readonly UserManager<IdentityUser> userManager;
@@ -59,12 +45,12 @@ namespace ExamAngular03.ViewModels
 
             var hasher = new PasswordHasher<IdentityUser>();
             var user = new IdentityUser { UserName = "admin", NormalizedUserName = "ADMIN" };
-            user.PasswordHash = hasher.HashPassword(user, "@Open1234");
+            user.PasswordHash = hasher.HashPassword(user, "emran1234");
             await CreateUserAsync(user, "Admin");
 
 
-            user = new IdentityUser { UserName = "r52", NormalizedUserName = "R52" };
-            user.PasswordHash = hasher.HashPassword(user, "@Open1234");
+            user = new IdentityUser { UserName = "emran", NormalizedUserName = "R52" };
+            user.PasswordHash = hasher.HashPassword(user, "emran1234");
             await CreateUserAsync(user, "Staff");
 
         }
